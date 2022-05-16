@@ -1,6 +1,5 @@
 const mongoose =require("mongoose");
-const { string } = require("yup");
-const userSchema= new mongoose.Schema({
+const userSchema= mongoose.Schema({
     gpsAddress:{
         type:String,
         required:true
@@ -9,10 +8,8 @@ const userSchema= new mongoose.Schema({
         type:String,
         required:true
     },
-    hseLocation:{
-        type:String,
-        required:true
-    },
+    hseLocation:{type:String,required:true},
+
     hseType:{
         require:true,
         type:String,
