@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const houseValidate = require("../config/houseValidator");
 
 const createHouse = async (req, res) => {
-  const { gpsAddress, landLordName, hseLocation,hseType,imageOfBuilding,note,amount } = req.body;
+  const { gpsAddress, landLordName, hseLocation,hseType,imageOfBuilding,amount,note } = req.body;
   const valid = await houseValidate({ gpsAddress, landLordName});
   if (valid) {
     const hashedgpsAddress = await bcrypt.hash(valid.gpsAddress, 10);
@@ -13,8 +13,9 @@ const createHouse = async (req, res) => {
         hseLocation,
         hseType,
         imageOfBuilding,
-        note,
-        amount
+        amount,
+        note
+        
     });
 
     if (house) {
@@ -24,8 +25,9 @@ const createHouse = async (req, res) => {
         hseLocation: house.hseLocation,
         hseType: house.hseType,
         imageOfBuilding: house.imageOfBuilding,
-        note: house.note,
-        amount: house.amount
+        amount: house.amount,
+        note: house.note
+     
       });
     }
     res.status(201).json({ message: "vacant room created successfully", house });

@@ -19,14 +19,15 @@ const userSchema= mongoose.Schema({
         type:String,
         require:true
     },
-    note:{
-        type:String,
-        require:true
-    },
     amount:{
         type:String,
         require:true
+    },
+    note:{
+        type:String,
+        require:true
     }
+    
 
 },{
     timestamps:true
