@@ -13,7 +13,7 @@ connectDB()
 app.use(express.json())
 app.use(morgan("dev"))
 app.use("/api/users", userRoute)
-app.use("/api/house", houseRoute)
+app.use("/api/houses", houseRoute)
 
 const PORT= process.env.PORT||9000;
 
